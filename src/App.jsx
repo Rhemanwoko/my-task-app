@@ -1,18 +1,8 @@
 import { useReducer, useState } from "react";
+import taskReducer from "./taskReducer";
 import "./App.css";
 import "./index.css";
 import "tailwindcss/tailwind.css";
-
-const taskReducer = (state, action) => {
-  switch (action.type) {
-    case "ADD_TASK":
-      return [...state, action.payload];
-    case "DELETE_TASK":
-      return state.filter((task) => task.id !== action.payload);
-    default:
-      return state;
-  }
-};
 
 function App() {
   const [tasks, dispatch] = useReducer(taskReducer, []);
